@@ -11,7 +11,7 @@ function resposta(retorno){
         <div class="movie">
         <img src=${opcoes[i].imagem}>
         <div class="title">${opcoes[i].titulo}</div>
-        <button onclick='insira(${response.data[i].id})'>
+        <button onclick='insira()'>
           Comprar
           <ion-icon name="cart-outline"></ion-icon>
         </button>
@@ -20,14 +20,13 @@ function resposta(retorno){
     }
 }
 
-function insira(clicado){
-    const nomeClicado = clicado;
-    const nomePessoa = prompt("Insira aqui seu nome: ");
-    const assentos = prompt("Insira aqui a quantidade de assentos: ");
-    const dados = {nome: nomePessoa, quantidade: parseInt(assentos)};
-    const compra = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/moviefinder/filmes/${nomeClicado}/ingresso`, dados);
-    compra.then(sucesso);
-    compra.catch(erro);
+function insira(){
+   const nomePessoa = prompt("Insira aqui seu nome: ");
+   const assentos = prompt("Insira aqui a quantidade de assentos: ");
+   const dados = {nome: nomePessoa, quantidade: parseInt(assentos)};
+   const compra = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/moviefinder/filmes/ID_DO_FILME/ingresso', dados);
+   compra.then(sucesso);
+   compra.catch(erro);
 }
 
 
